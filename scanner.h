@@ -13,23 +13,23 @@
 #include "parser.tab.hh"
 
 namespace SE{
-	class FlexScanner : public yyFlexLexer {
-		public:
-			// constructor
-			FlexScanner(std::istream *in)
-				: yyFlexLexer(in), yylval(NULL){}
-			//
-			int yylex(SE::BisonParser::semantic_type * lval)
-			{
-				yylval = lval;
-				return yylex();
-			}
+  class FlexScanner : public yyFlexLexer {
+    public:
+      // constructor
+      FlexScanner(std::istream *in)
+        : yyFlexLexer(in), yylval(NULL){}
+      //
+      int yylex(SE::BisonParser::semantic_type * lval)
+      {
+        yylval = lval;
+        return yylex();
+      }
 
-		private:
-			// scanning function created by Flex
-			int yylex();
-			// point to yylval
-			SE::BisonParser::semantic_type *yylval;
-	};
+    private:
+      // scanning function created by Flex
+      int yylex();
+      // point to yylval
+      SE::BisonParser::semantic_type *yylval;
+  };
 }
 
