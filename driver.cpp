@@ -3,8 +3,14 @@
 #include "driver.h"
 
 SE::Driver::~Driver(){
-  if(scanner) delete(scanner);
-  if(parser) delete(parser);
+  if(scanner) {
+    delete(scanner);
+    scanner = NULL;
+  }
+  if(parser) {
+    delete(parser);
+    parser = NULL;
+  }
 }
 
 void SE::Driver::parse(const char *filename) {

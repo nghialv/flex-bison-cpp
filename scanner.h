@@ -19,7 +19,7 @@ namespace SE{
       FlexScanner(std::istream *in)
         : yyFlexLexer(in), yylval(NULL){}
       //
-      int yylex(SE::BisonParser::semantic_type * lval)
+      int yylex(SE::BisonParser::semantic_type *lval)
       {
         yylval = lval;
         return yylex();
